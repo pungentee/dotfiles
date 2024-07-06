@@ -1,0 +1,30 @@
+[manager]
+show_hidden = true
+sort_by = "natural"
+sort_sensitive = false
+sort_dir_first = true
+show_symlink = true
+linemode = "size"
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true },
+]
+play = [
+	{ run = 'iina --no-stdin "$@"', orphan = true, for = "macos" },
+]
+
+[plugin]
+prepend_previewers = [
+    { name = "*.md", run = "glow" },
+
+    # archives
+	{ mime = "application/*zip",            run = "ouch" },
+	{ mime = "application/x-tar",           run = "ouch" },
+	{ mime = "application/x-bzip2",         run = "ouch" },
+	{ mime = "application/x-7z-compressed", run = "ouch" },
+	{ mime = "application/x-rar",           run = "ouch" },
+	{ mime = "application/x-xz",            run = "ouch" },
+
+    { mime = "application/x-bittorrent", run = "torrent-preview"} 
+]

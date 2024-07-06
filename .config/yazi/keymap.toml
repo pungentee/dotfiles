@@ -1,0 +1,10 @@
+[[input.prepend_keymap]]
+on   = [ "<Esc>" ]
+run  = "close"
+desc = "Cancel input"
+
+
+[[manager.prepend_keymap]]
+on   = [ "<Enter>" ]
+run  = "plugin --sync not-open-dir"
+desc = "Don't open dir in nvim on enter"
