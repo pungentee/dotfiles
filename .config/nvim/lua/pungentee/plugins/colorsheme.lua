@@ -3,8 +3,9 @@ return {
 		"f-person/auto-dark-mode.nvim",
 
 		dependencies = {
-			"nyoom-engineering/oxocarbon.nvim",
+			-- "nyoom-engineering/oxocarbon.nvim",
 			"miikanissi/modus-themes.nvim",
+			"catppuccin/nvim",
 		},
 
 		lazy = false,
@@ -16,7 +17,8 @@ return {
 				update_interval = 1000,
 				set_dark_mode = function()
 					vim.o.background = "dark"
-					vim.cmd.colorscheme("oxocarbon")
+					-- vim.cmd.colorscheme("oxocarbon")
+					vim.cmd.colorscheme("catppuccin-mocha")
 				end,
 
 				set_light_mode = function()
@@ -27,10 +29,21 @@ return {
 		end,
 	},
 
+	-- {
+	-- 	"nyoom-engineering/oxocarbon.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+
 	{
-		"nyoom-engineering/oxocarbon.nvim",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
+		init = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+			})
+		end,
 	},
 
 	{
@@ -39,6 +52,11 @@ return {
 		priority = 1000,
 		init = function()
 			vim.o.background = "light"
+
+            require("modus-themes").setup({
+                transparent = true
+            })
+
 			vim.cmd.colorscheme("modus")
 		end,
 	},
