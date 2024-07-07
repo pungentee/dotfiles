@@ -15,10 +15,10 @@ else
     # stuff for both
 end
 
-# if status is-interactive
-# and not set -q TMUX
-#     exec tmux new-session -As home
-# end
+if status is-interactive
+and not set -q TMUX
+    exec tmux new-session -As home
+end
 
 set -x XDG_CONFIG_HOME $HOME/.config
 
