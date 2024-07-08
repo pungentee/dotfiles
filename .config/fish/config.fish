@@ -7,8 +7,9 @@ set -l os (uname)
 if test "$os" = Darwin
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    set -x LIBRARY_PATH $LIBRARY_PATH "/opt/homebrew/lib/"
-    set -x INCLUDE_PATH $INCLUDE_PATH "/opt/homebrew/include/"
+    set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH "/opt/homebrew/lib/"
+    set -x C_INCLUDE_PATH $C_INCLUDE_PATH "/opt/homebrew/include/"
+    set -x CXX_INCLUDE_PATH $CXX_INCLUDE_PATH "/opt/homebrew/include/"
 else if test "$os" = Linux
     # stuff for linux
 else
@@ -27,7 +28,7 @@ alias ip "dig +short myip.opendns.com @resolver1.opendns.com"
 alias local_ip "ipconfig getifaddr en0"
 alias nv "nvim"
 alias lg "lazygit"
-alias tm "tmux new-session -As home"
+alias lg "lazygit"
 
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")

@@ -112,43 +112,14 @@ return {
 		},
 	},
 	{
-		"folke/trouble.nvim",
-		event = "VeryLazy",
-		keys = {
-			{
-				"<leader>dd",
-				"<cmd>Trouble diagnostics toggle focus=true win.position=right<cr>",
-				desc = "Toggle diagnostics window",
-			},
-			{
-				"<leader>db",
-				"<cmd>Trouble diagnostics toggle filter.buf=0 win.position=right<cr>",
-				desc = "Toggle buffer Diagnostics window",
-			},
-			{
-				"<leader>df",
-				"<cmd>Trouble focus win.position=right<cr>",
-				desc = "Focus diagnostic window",
-			},
-			{
-				"<leader>ds",
-				"<cmd>Trouble symbols toggle focus=true win.position=right<cr>",
-				desc = "Toggle symbols window",
-			},
-		},
-		opts = {
-			auto_close = true,
-		},
-	},
-	{
 		"folke/todo-comments.nvim",
 		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"folke/trouble.nvim",
+			"nvim-telescope/telescope.nvim",
 		},
 		keys = {
-			{ "<leader>dt", "<cmd>TodoTrouble<cr>", desc = "Todo list" },
+			{ "<leader>fa", "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
 		},
 		opts = {},
 	},
@@ -188,6 +159,13 @@ return {
 				"<cmd>Telescope emoji<cr>",
 				desc = "Find emoji",
 			},
+			{
+				"<leader>fd",
+				function()
+					require("telescope.builtin").diagnostics()
+				end,
+				desc = "Find diagnostic",
+			},
 		},
 		config = function()
 			local telescope = require("telescope")
@@ -223,6 +201,7 @@ return {
 			telescope.load_extension("emoji")
 		end,
 	},
+
 	-- {
 	-- 	"supermaven-inc/supermaven-nvim",
 	-- 	keys = {
@@ -243,6 +222,7 @@ return {
 	-- 		require("supermaven-nvim.api").stop()
 	-- 	end,
 	-- },
+
 	-- {
 	-- 	"andweeb/presence.nvim",
 	-- 	event = "VeryLazy",
@@ -250,6 +230,7 @@ return {
 	-- 		main_image = "file",
 	-- 	},
 	-- },
+
 	{
 		"folke/persistence.nvim",
 		event = { "BufReadPre", "VeryLazy" },

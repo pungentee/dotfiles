@@ -15,7 +15,7 @@ return {
 				desc = "Generate error check (go)",
 			},
 		},
-		config = true
+		config = true,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -61,9 +61,13 @@ return {
 				map("r", vim.lsp.buf.rename, "Rename")
 				map("a", vim.lsp.buf.code_action, "Code actions")
 				map("h", vim.lsp.buf.hover, "Information about the symbol")
-				map("d", vim.lsp.buf.definition, "Go to defenition")
-				map("t", vim.lsp.buf.type_definition, "Go to type definition")
-				map("D", vim.lsp.buf.declaration, "Go to declaration")
+                map("D", vim.lsp.buf.declaration, "Go to declaration")
+				map("d", function()
+					require("telescope.builtin").lsp_definitions({ initial_mode = "normal" })
+				end, "Go to defenition")
+				map("t", function()
+					require("telescope.builtin").lsp_type_definitions({ initial_mode = "normal" })
+				end, "Go to type definition")
 				map("i", function()
 					require("telescope.builtin").lsp_implementations({ initial_mode = "normal" })
 				end, "List of implementations")
