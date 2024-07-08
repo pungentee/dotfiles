@@ -6,8 +6,6 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			"roobert/bufferline-cycle-windowless.nvim",
-			"projekt0n/github-nvim-theme",
-			"catppuccin/nvim",
 		},
 		keys = {
 			{ "{", "<cmd>BufferLineMovePrev<cr>" },
@@ -15,12 +13,6 @@ return {
 		},
 		config = function()
 			local bufferline = require("bufferline")
-
-			local highlights = {}
-
-			-- if vim.o.background == "dark" then
-			-- 	highlights = require("catppuccin.groups.integrations.bufferline").get()
-			-- end
 
 			bufferline.setup({
 				options = {
@@ -48,7 +40,6 @@ return {
 						},
 					},
 				},
-				highlights = highlights,
 			})
 		end,
 	},

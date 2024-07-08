@@ -1,36 +1,38 @@
 return {
 	{
 		"stevearc/conform.nvim",
-		opts = {
-			formatters_by_ft = {
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				vue = { "prettier" },
-				scss = { "prettier" },
-				less = { "prettier" },
-				jsonc = { "prettier" },
-				graphql = { "prettier" },
-				handlebars = { "prettier" },
-				go = { "gofumpt", "goimports-reviser", "golines" },
-				gomod = { "gofumpt", "goimports-reviser", "golines" },
-				c = { "clang-format" },
-				cpp = { "clang-format" },
-				cmake = { "gersemi" },
-				html = { "prettier" },
-				css = { "prettier" },
-				javascript = { "prettier" },
-				json = { "prettier" },
-				typescript = { "prettier" },
-				yaml = { "prettier" },
-				lua = { "stylua" },
-				markdown = { "markdownlint" },
-				python = { "black", "isort" },
-				rust = { "rustfmt" },
-				sql = { "sql_formatter" },
-			},
+		dependencies = {
+			"folke/which-key.nvim",
 		},
-		config = function(_, opts)
-			require("conform").setup(opts)
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					-- javascriptreact = { "prettier" },
+					-- typescriptreact = { "prettier" },
+					-- vue = { "prettier" },
+					-- scss = { "prettier" },
+					-- less = { "prettier" },
+					-- html = { "prettier" },
+					-- css = { "prettier" },
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					json = { "prettier" },
+					jsonc = { "prettier" },
+					graphql = { "prettier" },
+					handlebars = { "prettier" },
+					go = { "gofumpt", "goimports", "golines" },
+					gomod = { "gofumpt" },
+					c = { "clang-format" },
+					cpp = { "clang-format" },
+					cmake = { "gersemi" },
+					yaml = { "prettier" },
+					lua = { "stylua" },
+					markdown = { "markdownlint" },
+					python = { "black", "isort" },
+					rust = { "rustfmt" },
+					sql = { "sql_formatter" },
+				},
+			})
 
 			-- vim.api.nvim_create_autocmd("BufWritePre", {
 			-- 	pattern = "*",

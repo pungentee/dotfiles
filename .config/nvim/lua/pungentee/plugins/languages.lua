@@ -15,9 +15,7 @@ return {
 				desc = "Generate error check (go)",
 			},
 		},
-		config = function()
-			require("gopher").setup()
-		end,
+		config = true
 	},
 	{
 		"neovim/nvim-lspconfig",

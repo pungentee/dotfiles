@@ -19,7 +19,7 @@ return {
 
 		dependencies = {
 			"nyoom-engineering/oxocarbon.nvim",
-			-- "catppuccin/nvim",
+			"NTBBloodbath/sweetie.nvim",
 		},
 
 		lazy = false,
@@ -29,12 +29,6 @@ return {
 
 			auto_dark_mode.setup({
 				update_interval = 1000,
-
-				-- set_dark_mode = function()
-				-- 	vim.o.background = "dark"
-				-- 	-- vim.cmd.colorscheme("oxocarbon")
-				-- 	vim.cmd.colorscheme("catppuccin-mocha")
-				-- end,
 
 				set_dark_mode = function()
 					vim.o.background = "dark"
@@ -61,11 +55,8 @@ return {
 		priority = 1000,
 		-- init = function()
 		-- 	vim.o.background = "dark"
-		--
 		-- 	vim.cmd.colorscheme("oxocarbon")
-		--
-		-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		-- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		-- 	transparent_background()
 		-- end,
 	},
 
@@ -73,23 +64,10 @@ return {
 		"NTBBloodbath/sweetie.nvim",
 		lazy = false,
 		priority = 1000,
-		init = function()
-			vim.o.background = "light"
-
-			vim.cmd.colorscheme("sweetie")
-
-			transparent_background()
-		end,
+		-- init = function()
+		-- 	vim.o.background = "light"
+		-- 	vim.cmd.colorscheme("sweetie")
+		-- 	transparent_background()
+		-- end,
 	},
-
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	init = function()
-	-- 		require("catppuccin").setup({
-	-- 			transparent_background = true,
-	-- 		})
-	-- 	end,
-	-- },
 }
