@@ -38,6 +38,7 @@ return {
 					format = lspkind.cmp_format({
 						mode = "symbol_text",
 						preset = "default",
+						maxwidth = 50,
 						-- symbol_map = { Supermaven = "" },
 					}),
 				},
@@ -87,6 +88,7 @@ return {
 				}),
 				sources = {
 					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "crates" },
 					-- { name = "supermaven" },
 					{ name = "path" },
