@@ -20,7 +20,8 @@ return {
 		dependencies = {
 			"mellow-theme/mellow.nvim",
 			-- "nyoom-engineering/oxocarbon.nvim",
-			"NTBBloodbath/sweetie.nvim",
+			-- "NTBBloodbath/sweetie.nvim",
+			"NLKNguyen/papercolor-theme",
 		},
 
 		lazy = false,
@@ -48,8 +49,15 @@ return {
 
 				set_light_mode = function()
 					vim.o.background = "light"
+					vim.g.PaperColor_Theme_Options = {
+						theme = {
+							default = {
+								transparent_background = 1,
+							},
+						},
+					}
 
-					vim.cmd.colorscheme("sweetie")
+					vim.cmd.colorscheme("PaperColor")
 
 					transparent_background()
 				end,
@@ -61,32 +69,29 @@ return {
 		"mellow-theme/mellow.nvim",
 		lazy = false,
 		priority = 1000,
-		-- init = function()
-		-- 	vim.o.background = "dark"
-		-- 	vim.cmd.colorscheme("oxocarbon")
-		-- 	transparent_background()
-		-- end,
 	},
 
 	-- {
 	-- 	"nyoom-engineering/oxocarbon.nvim",
 	-- 	lazy = false,
 	-- 	priority = 1000,
-	-- 	-- init = function()
-	-- 	-- 	vim.o.background = "dark"
-	-- 	-- 	vim.cmd.colorscheme("oxocarbon")
-	-- 	-- 	transparent_background()
-	-- 	-- end,
+	-- },
+
+	-- {
+	-- 	"NTBBloodbath/sweetie.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+
+	-- {
+	-- 	"NLKNguyen/papercolor-theme",
+	-- 	lazy = false,
+	-- 	priority = 1000,
 	-- },
 
 	{
-		"NTBBloodbath/sweetie.nvim",
+		"NLKNguyen/papercolor-theme",
 		lazy = false,
 		priority = 1000,
-		-- init = function()
-		-- 	vim.o.background = "light"
-		-- 	vim.cmd.colorscheme("sweetie")
-		-- 	transparent_background()
-		-- end,
 	},
 }

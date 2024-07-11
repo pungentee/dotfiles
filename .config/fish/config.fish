@@ -7,9 +7,12 @@ set -l os (uname)
 if test "$os" = Darwin
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH "/opt/homebrew/lib/"
+    set -x LIBRARY_PATH $LIBRARY_PATH "/opt/homebrew/lib/"
     set -x C_INCLUDE_PATH $C_INCLUDE_PATH "/opt/homebrew/include/"
-    set -x CXX_INCLUDE_PATH $CXX_INCLUDE_PATH "/opt/homebrew/include/"
+    set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH "/opt/homebrew/include/"
+
+    set -x LIBRARY_PATH $LIBRARY_PATH "/opt/homebrew/Cellar/sfml/2.6.1/lib/"
+    set -x CPLUS_INCLUDE_PATH $CPLUS_INCLUDE_PATH "/opt/homebrew/Cellar/sfml/2.6.1/include/"
 else if test "$os" = Linux
     # stuff for linux
 else

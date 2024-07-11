@@ -13,7 +13,7 @@ return {
 
 			local theme = (function()
 				if vim.o.background == "dark" then
-					return "catppuccin"
+					return "auto"
 				elseif vim.o.background == "light" then
 					return "auto"
 				end
@@ -32,9 +32,6 @@ return {
 					lualine_a = { { "mode", separator = "", padding = { left = 1, right = 1 } } },
 					lualine_b = { { "branch", separator = "", padding = { left = 2, right = 1 } } },
 					lualine_c = {
-						{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-						{ "filename", separator = "", padding = { left = 0, right = 1 } },
-						{ "diff", separator = "", padding = { left = 1, right = 1 } },
 						{
 							git_blame.get_current_blame_text,
 							cond = git_blame.is_blame_text_available,
@@ -42,10 +39,14 @@ return {
 							padding = { left = 1, right = 1 },
 						},
 					},
+					lualine_x = {},
 					lualine_y = {
+						{ "location", separator = "", padding = { left = 0, right = 1 } },
+					},
+					lualine_z = {
+						{ "diff", separator = "", padding = { left = 1, right = 1 } },
 						{ "diagnostics", separator = "", padding = { left = 1, right = 1 } },
 					},
-					lualine_z = { "location" },
 				},
 				inactive_sections = {
 					lualine_a = {},
