@@ -22,6 +22,8 @@ return {
 			-- "nyoom-engineering/oxocarbon.nvim",
 			-- "NTBBloodbath/sweetie.nvim",
 			"NLKNguyen/papercolor-theme",
+
+			"nvim-lualine/lualine.nvim",
 		},
 
 		lazy = false,
@@ -35,6 +37,18 @@ return {
 					vim.o.background = "dark"
 
 					vim.cmd.colorscheme("mellow")
+
+					require("lualine").setup({
+						sections = {
+							lualine_y = {
+								{ "diff", separator = "", padding = { left = 1, right = 1 } },
+								{ "diagnostics", separator = "", padding = { left = 1, right = 1 } },
+							},
+							lualine_z = {
+								{ "location", separator = "", padding = { left = 0, right = 1 } },
+							},
+						},
+					})
 
 					transparent_background()
 				end,
@@ -58,6 +72,18 @@ return {
 					}
 
 					vim.cmd.colorscheme("PaperColor")
+
+					require("lualine").setup({
+						sections = {
+							lualine_y = {
+								{ "location", separator = "", padding = { left = 0, right = 1 } },
+							},
+							lualine_z = {
+								{ "diff", separator = "", padding = { left = 1, right = 1 } },
+								{ "diagnostics", separator = "", padding = { left = 1, right = 1 } },
+							},
+						},
+					})
 
 					transparent_background()
 				end,

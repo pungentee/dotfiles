@@ -44,8 +44,8 @@ return {
 						{ "location", separator = "", padding = { left = 0, right = 1 } },
 					},
 					lualine_z = {
-						{ "diff", separator = "", padding = { left = 1, right = 1 } },
-						{ "diagnostics", separator = "", padding = { left = 1, right = 1 } },
+                        { "diff", separator = "", padding = { left = 1, right = 1 } },
+                        { "diagnostics", separator = "", padding = { left = 1, right = 1 } },
 					},
 				},
 				inactive_sections = {
