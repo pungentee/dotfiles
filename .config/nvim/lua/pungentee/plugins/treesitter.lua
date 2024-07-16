@@ -66,6 +66,7 @@ return {
 					"nasm",
 					"printf",
 					"sql",
+                    "haskell"
 				},
 			})
 		end,

@@ -16,6 +16,7 @@ return {
 				yaml = { "yamllint" },
 				markdown = { "markdownlint" },
 				python = { "pylint" },
+				haskell = { "hlint" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {

@@ -55,6 +55,10 @@ return {
 				"yamllint",
 				"pylint",
 				"hadolint",
+
+                -- haskell
+                "fourmolu",
+                "hlint"
 			},
 		},
 	},

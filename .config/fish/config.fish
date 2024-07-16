@@ -56,6 +56,9 @@ set -x SDKMAN_DIR $HOME/.sdkman
 # rust
 fish_add_path $HOME/.cargo/bin
 
+# haskell
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /Users/tymofiikliuiev/.ghcup/bin # ghcup-env
+
 fish_add_path $HOME/Other/bin
 fish_add_path /opt/homebrew/bin
 
@@ -67,5 +70,6 @@ fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
 pyenv init - | source
+
 
 

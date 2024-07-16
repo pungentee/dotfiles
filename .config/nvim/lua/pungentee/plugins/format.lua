@@ -31,6 +31,7 @@ return {
 					python = { "black", "isort" },
 					rust = { "rustfmt" },
 					sql = { "sql_formatter" },
+					haskell = { "fourmolu" },
 				},
 			})
 
