@@ -18,6 +18,14 @@ return {
 		config = true,
 	},
 	{
+		"MysticalDevil/inlay-hints.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		keys = {
+			{ "<leader>lv", "<cmd>InlayHintsToggle<cr>", desc = "Toggle inlay hhints" },
+		},
+		opts = {},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
@@ -52,7 +60,7 @@ return {
 				},
 			}
 
-			local on_attach = function(_, bufnr)
+			local on_attach = function(client, bufnr)
 				local map = function(key, action, desc)
 					require("which-key").register({
 						[key] = { action, desc },
@@ -91,6 +99,33 @@ return {
 							format = {
 								formatting_options = nil,
 								timeout_ms = nil,
+							},
+						})
+					end,
+
+					clangd = function()
+						require("lspconfig").clangd.setup({
+							capabilities = capabilities,
+							on_attach = on_attach,
+							diagnostics = {
+								underline = true,
+								update_in_insert = false,
+								severity_sort = true,
+							},
+							format = {
+								formatting_options = nil,
+								timeout_ms = nil,
+							},
+							settings = {
+								clangd = {
+									InlayHints = {
+										Designators = true,
+										Enabled = true,
+										ParameterNames = true,
+										DeducedTypes = true,
+									},
+									fallbackFlags = { "-std=c++20" },
+								},
 							},
 						})
 					end,
@@ -156,6 +191,15 @@ return {
 										"-node_modules",
 									},
 									semanticTokens = true,
+									hints = {
+										rangeVariableTypes = true,
+										parameterNames = true,
+										constantValues = true,
+										assignVariableTypes = true,
+										compositeLiteralFields = true,
+										compositeLiteralTypes = true,
+										functionTypeParameters = true,
+									},
 								},
 							},
 						})
@@ -185,6 +229,128 @@ return {
 									workspace = {
 										library = {
 											vim.env.VIMRUNTIME,
+										},
+									},
+									hint = {
+										enable = true,
+									},
+								},
+							},
+						})
+					end,
+
+					tsserver = function()
+						require("lspconfig").tsserver.setup({
+							on_attach = on_attach,
+							capabilities = capabilities,
+							diagnostics = {
+								underline = true,
+								update_in_insert = false,
+								severity_sort = true,
+							},
+							format = {
+								formatting_options = nil,
+								timeout_ms = nil,
+							},
+							settings = {
+								typescript = {
+									inlayHints = {
+										includeInlayParameterNameHints = "all",
+										includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+										includeInlayFunctionParameterTypeHints = true,
+										includeInlayVariableTypeHints = true,
+										includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+										includeInlayPropertyDeclarationTypeHints = true,
+										includeInlayFunctionLikeReturnTypeHints = true,
+										includeInlayEnumMemberValueHints = true,
+									},
+								},
+								javascript = {
+									inlayHints = {
+										includeInlayParameterNameHints = "all",
+										includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+										includeInlayFunctionParameterTypeHints = true,
+										includeInlayVariableTypeHints = true,
+										includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+										includeInlayPropertyDeclarationTypeHints = true,
+										includeInlayFunctionLikeReturnTypeHints = true,
+										includeInlayEnumMemberValueHints = true,
+									},
+								},
+							},
+						})
+					end,
+
+					basedpyright = function()
+						require("lspconfig").basedpyright.setup({
+							on_attach = on_attach,
+							capabilities = capabilities,
+							diagnostics = {
+								underline = true,
+								update_in_insert = false,
+								severity_sort = true,
+							},
+							format = {
+								formatting_options = nil,
+								timeout_ms = nil,
+							},
+							settings = {
+								basedpyright = {
+									analysis = {
+										autoSearchPaths = true,
+										diagnosticMode = "openFilesOnly",
+										useLibraryCodeForTypes = true,
+									},
+								},
+							},
+						})
+					end,
+
+					rust_analyzer = function()
+						require("lspconfig").rust_analyzer.setup({
+							on_attach = on_attach,
+							capabilities = capabilities,
+							diagnostics = {
+								underline = true,
+								update_in_insert = false,
+								severity_sort = true,
+							},
+							format = {
+								formatting_options = nil,
+								timeout_ms = nil,
+							},
+							settings = {
+								["rust-analyzer"] = {
+									inlayHints = {
+										bindingModeHints = {
+											enable = false,
+										},
+										chainingHints = {
+											enable = true,
+										},
+										closingBraceHints = {
+											enable = true,
+											minLines = 25,
+										},
+										closureReturnTypeHints = {
+											enable = "never",
+										},
+										lifetimeElisionHints = {
+											enable = "never",
+											useParameterNames = false,
+										},
+										maxLength = 25,
+										parameterHints = {
+											enable = true,
+										},
+										reborrowHints = {
+											enable = "never",
+										},
+										renderColons = true,
+										typeHints = {
+											enable = true,
+											hideClosureInitialization = false,
+											hideNamedConstructor = false,
 										},
 									},
 								},

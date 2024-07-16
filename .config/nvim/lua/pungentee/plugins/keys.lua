@@ -15,7 +15,7 @@ return {
 				f = { name = "find something" },
 				d = { name = "diagnostics" },
 				l = {
-					name = "file actions",
+					name = "lsp actions",
 					L = {
 						"<cmd>LspInfo<cr>",
 						"Lsp info",

@@ -16,11 +16,10 @@ return {
 				"cmake",
 				"docker_compose_language_service",
 				"dockerls",
-				"eslint",
 				"gopls",
-				"html",
+                "tsserver",
 				"jsonls",
-				"pyright",
+                "basedpyright",
 				"sqlls",
 				"marksman",
 				"rust_analyzer",
@@ -35,6 +34,7 @@ return {
 		},
 		opts = {
 			ensure_installed = {
+                -- golang
 				"gofumpt",
 				"goimports",
 				"golines",
@@ -46,11 +46,9 @@ return {
 				"stylua",
 				"markdownlint",
 				"black",
-				"isort",
 				"sql-formatter",
 
 				"cpplint",
-				"htmlhint",
 				"jsonlint",
 				"yamllint",
 				"pylint",

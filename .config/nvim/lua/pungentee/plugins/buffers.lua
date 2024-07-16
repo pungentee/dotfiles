@@ -18,6 +18,7 @@ return {
 				options = {
 					style_preset = bufferline.style_preset_minimal,
 					numbers = "none",
+					themable = true,
 					right_mouse_command = false,
 					left_mouse_command = false,
 					diagnostics = "nvim_lsp",
@@ -39,6 +40,7 @@ return {
 							text_align = "center",
 						},
 					},
+					highlights = {},
 				},
 			})
 		end,

@@ -28,19 +28,12 @@ return {
 					yaml = { "prettier" },
 					lua = { "stylua" },
 					markdown = { "markdownlint" },
-					python = { "black", "isort" },
+					python = { "black" },
 					rust = { "rustfmt" },
 					sql = { "sql_formatter" },
 					haskell = { "fourmolu" },
 				},
 			})
-
-			-- vim.api.nvim_create_autocmd("BufWritePre", {
-			-- 	pattern = "*",
-			-- 	callback = function(args)
-			-- 		require("conform").format({ bufnr = args.buf })
-			-- 	end,
-			-- })
 
 			vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 				callback = function(event)
