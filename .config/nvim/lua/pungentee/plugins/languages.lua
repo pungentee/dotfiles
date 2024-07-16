@@ -39,6 +39,7 @@ return {
 
 			local capabilities =
 				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 			capabilities.textDocument = {
 				foldingRange = {
 					dynamicRegistration = false,
@@ -61,7 +62,7 @@ return {
 				map("r", vim.lsp.buf.rename, "Rename")
 				map("a", vim.lsp.buf.code_action, "Code actions")
 				map("h", vim.lsp.buf.hover, "Information about the symbol")
-                map("D", vim.lsp.buf.declaration, "Go to declaration")
+				map("D", vim.lsp.buf.declaration, "Go to declaration")
 				map("d", function()
 					require("telescope.builtin").lsp_definitions({ initial_mode = "normal" })
 				end, "Go to defenition")
@@ -82,7 +83,6 @@ return {
 						require("lspconfig")[server].setup({
 							capabilities = capabilities,
 							on_attach = on_attach,
-
 							diagnostics = {
 								underline = true,
 								update_in_insert = false,

@@ -48,21 +48,16 @@ set --universal nvm_default_version v22.2.0
 # golang
 set -x GOROOT $HOME/.gobrew/current/go
 set -x GOPATH $HOME/.gobrew/packages
-set -x PATH $HOME/.gobrew/current/bin $HOME/.gobrew/bin $GOPATH/bin $PATH
-
-# pyenv
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/bin $PATH
-pyenv init - | source
+fish_add_path $HOME/.gobrew/current/bin $HOME/.gobrew/bin $GOPATH/bin
 
 # java
 set -x SDKMAN_DIR $HOME/.sdkman
 
 # rust
-set -x PATH "$HOME/.cargo/bin" $PATH
+fish_add_path $HOME/.cargo/bin
 
-set -x PATH "$HOME/Other/bin" $PATH
-set -x PATH "$HOME/.local/bin" $PATH
+fish_add_path $HOME/Other/bin
+fish_add_path /opt/homebrew/bin
 
 set -gx EDITOR nvim
 
@@ -71,6 +66,6 @@ set -g mouse on
 fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
-
+pyenv init - | source
 
 

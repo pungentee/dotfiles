@@ -35,10 +35,10 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-                "gofumpt",
-                "goimports",
-                "golines",
-                "golangci-lint",
+				"gofumpt",
+				"goimports",
+				"golines",
+				"golangci-lint",
 
 				"clang-format",
 				"gersemi",
