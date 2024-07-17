@@ -19,7 +19,7 @@ return {
 				"gopls",
                 "tsserver",
 				"jsonls",
-                "basedpyright",
+                "pyright",
 				"sqlls",
 				"marksman",
 				"rust_analyzer",

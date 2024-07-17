@@ -2,16 +2,23 @@
 
 ## Install dependencies
 
-### macOS
-
 ```sh
-brew install starship neovim yazi fish tmux stow git gcc make ripgrep deno zoxide fzf lazygit pyenv git-delta
-```
-
-### OpenSUSE
-
-```sh
-sudo zypper install starship neovim yazi fish tmux stow git gcc make ripgrep deno pyenv zoxide fzf lazygit git-delta
+starship 
+neovim 
+yazi 
+fish 
+tmux 
+stow 
+git 
+gcc 
+make 
+ripgrep 
+deno 
+zoxide 
+fzf 
+lazygit 
+hatch 
+git-delta
 ```
 
 ## Install dotfiles
@@ -36,10 +43,6 @@ nvm install latest
 # go
 curl -sL https://raw.githubusercontent.com/kevincobain2000/gobrew/master/git.io.sh | sh
 gobrew install latest
-
-# python
-pyenv install 3.12
-pyenv global 3.12
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

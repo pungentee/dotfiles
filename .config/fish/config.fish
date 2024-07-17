@@ -19,10 +19,10 @@ else
     # stuff for both
 end
 
-# if status is-interactive
-# and not set -q TMUX
-#     exec tmux new-session -As home
-# end
+if status is-interactive
+and not set -q TMUX
+    exec tmux new-session -As home
+end
 
 set -x XDG_CONFIG_HOME $HOME/.config
 
@@ -69,7 +69,6 @@ set -g mouse on
 fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
-pyenv init - | source
 
 
 

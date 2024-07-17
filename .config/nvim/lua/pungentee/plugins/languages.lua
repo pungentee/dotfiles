@@ -60,7 +60,7 @@ return {
 				},
 			}
 
-			local on_attach = function(client, bufnr)
+			local on_attach = function(_, bufnr)
 				local map = function(key, action, desc)
 					require("which-key").register({
 						[key] = { action, desc },
