@@ -69,6 +69,7 @@ set -g mouse on
 fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
+pyenv init - | source
 
 
 

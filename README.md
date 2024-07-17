@@ -18,6 +18,7 @@ zoxide
 fzf 
 lazygit 
 hatch 
+pyenv
 git-delta
 ```
 
@@ -43,6 +44,10 @@ nvm install latest
 # go
 curl -sL https://raw.githubusercontent.com/kevincobain2000/gobrew/master/git.io.sh | sh
 gobrew install latest
+
+# python
+pyenv install 3.12
+pyenv global 3.12
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
