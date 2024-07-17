@@ -62,6 +62,9 @@ set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; se
 fish_add_path $HOME/Other/bin
 fish_add_path /opt/homebrew/bin
 
+# python
+fish_add_path $HOME/.rye/shims
+
 set -gx EDITOR nvim
 
 set -g mouse on
@@ -69,7 +72,4 @@ set -g mouse on
 fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
-pyenv init - | source
-
-
 

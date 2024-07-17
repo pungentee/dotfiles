@@ -28,10 +28,16 @@ return {
 					yaml = { "prettier" },
 					lua = { "stylua" },
 					markdown = { "markdownlint" },
-					python = { "black" },
+					python = { "ruff_format", "ruff_fix" },
 					rust = { "rustfmt" },
 					sql = { "sql_formatter" },
 					haskell = { "fourmolu" },
+				},
+
+				formatters = {
+					black = {
+						prepend_args = { "--fast" },
+					},
 				},
 			})
 

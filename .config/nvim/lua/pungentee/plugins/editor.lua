@@ -78,6 +78,10 @@ return {
 						},
 					},
 				},
+				filters = {
+					dotfiles = false,
+					git_ignored = false,
+				},
 			})
 
 			local api = require("nvim-tree.api")
@@ -360,5 +364,4 @@ return {
 			mapping = { "jk", "kj" },
 		},
 	},
-
 }

@@ -1,6 +1,7 @@
 return {
 	{
 		"mfussenegger/nvim-lint",
+		lazy = false,
 		config = function()
 			local lint = require("lint")
 
@@ -15,7 +16,7 @@ return {
 				typescript = { "eslint" },
 				yaml = { "yamllint" },
 				markdown = { "markdownlint" },
-				python = { "pylint" },
+				python = { "ruff" },
 				haskell = { "hlint" },
 			}
 

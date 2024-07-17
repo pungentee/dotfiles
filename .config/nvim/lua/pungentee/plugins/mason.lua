@@ -17,9 +17,9 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 				"gopls",
-                "tsserver",
+				"tsserver",
 				"jsonls",
-                "pyright",
+				"pyright",
 				"sqlls",
 				"marksman",
 				"rust_analyzer",
@@ -34,7 +34,7 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-                -- golang
+				-- golang
 				"gofumpt",
 				"goimports",
 				"golines",
@@ -45,18 +45,18 @@ return {
 				"prettier",
 				"stylua",
 				"markdownlint",
-				"black",
 				"sql-formatter",
-
 				"cpplint",
 				"jsonlint",
 				"yamllint",
-				"pylint",
 				"hadolint",
 
-                -- haskell
-                "fourmolu",
-                "hlint"
+				-- python
+                "ruff",
+
+				-- haskell
+				"fourmolu",
+				"hlint",
 			},
 		},
 	},
