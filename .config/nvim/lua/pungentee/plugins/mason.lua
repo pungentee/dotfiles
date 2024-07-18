@@ -17,13 +17,11 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 				"gopls",
-				"tsserver",
 				"jsonls",
-				"pyright",
 				"sqlls",
 				"marksman",
 				"rust_analyzer",
-				"julials",
+                "ruff", -- python
 			},
 		},
 	},
@@ -42,8 +40,6 @@ return {
 
 				"clang-format",
 				"gersemi",
-				"prettier",
-				"stylua",
 				"markdownlint",
 				"sql-formatter",
 				"cpplint",
@@ -51,8 +47,8 @@ return {
 				"yamllint",
 				"hadolint",
 
-				-- python
-                "ruff",
+				-- lua
+				"stylua",
 
 				-- haskell
 				"fourmolu",

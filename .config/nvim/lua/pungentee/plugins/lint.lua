@@ -16,8 +16,8 @@ return {
 				typescript = { "eslint" },
 				yaml = { "yamllint" },
 				markdown = { "markdownlint" },
-				python = { "ruff" },
 				haskell = { "hlint" },
+				python = { "ruff" },
 			}
 
 			-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
