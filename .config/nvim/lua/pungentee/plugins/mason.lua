@@ -21,7 +21,10 @@ return {
 				"sqlls",
 				"marksman",
 				"rust_analyzer",
-                "ruff", -- python
+
+				-- python
+				"ruff",
+				"pyright",
 			},
 		},
 	},

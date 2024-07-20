@@ -31,7 +31,7 @@ alias ip "dig +short myip.opendns.com @resolver1.opendns.com"
 alias local_ip "ipconfig getifaddr en0"
 alias nv "nvim"
 alias lg "lazygit"
-alias lg "lazygit"
+alias lzd "lazydocker"
 
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")

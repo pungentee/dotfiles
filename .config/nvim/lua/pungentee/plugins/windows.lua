@@ -24,13 +24,6 @@ return {
         lazy = false,
 		keys = {
 			{
-				"<leader>wr",
-				function()
-					require("smart-splits").start_resize_mode()
-				end,
-				desc = "Start window resizing mode",
-			},
-			{
 				"<C-h>",
 				function()
 					require("smart-splits").move_cursor_left()
@@ -52,6 +45,30 @@ return {
 				"<C-k>",
 				function()
 					require("smart-splits").move_cursor_up()
+				end,
+			},
+			{
+				"<A-h>",
+				function()
+					require("smart-splits").resize_left()
+				end,
+			},
+			{
+				"<A-l>",
+				function()
+					require("smart-splits").resize_right()
+				end,
+			},
+			{
+				"<A-j>",
+				function()
+					require("smart-splits").resize_down()
+				end,
+			},
+			{
+				"<A-k>",
+				function()
+                    require("smart-splits").resize_up()
 				end,
 			},
 		},
