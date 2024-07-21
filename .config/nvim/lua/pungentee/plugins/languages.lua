@@ -60,7 +60,7 @@ return {
 				},
 			}
 
-			local on_attach = function(_, bufnr)
+			local on_attach = function(client, bufnr)
 				local map = function(key, action, desc)
 					require("which-key").register({
 						[key] = { action, desc },
@@ -83,6 +83,10 @@ return {
 				map("R", function()
 					require("telescope.builtin").lsp_references({ initial_mode = "normal" })
 				end, "List of references")
+
+				if client.name == "ruff_lsp" then
+					client.server_capabilities.hoverProvider = false
+				end
 			end
 
 			require("mason-lspconfig").setup({
@@ -99,6 +103,39 @@ return {
 							format = {
 								formatting_options = nil,
 								timeout_ms = nil,
+							},
+						})
+					end,
+
+					pyright = function()
+						require("lspconfig").pyright.setup({
+							settings = {
+								pyright = {
+									disableOrganizeImports = true,
+								},
+								python = {
+									analysis = {
+										ignore = { "*" },
+									},
+								},
+							},
+						})
+					end,
+
+					ruff = function()
+						require("lspconfig").ruff.setup({
+							capabilities = capabilities,
+							on_attach = on_attach,
+							diagnostics = {
+								underline = true,
+								update_in_insert = false,
+								severity_sort = true,
+							},
+							format = {
+								timeout_ms = nil,
+							},
+							settings = {
+								args = {},
 							},
 						})
 					end,
