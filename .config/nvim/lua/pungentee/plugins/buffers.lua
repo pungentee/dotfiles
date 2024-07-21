@@ -10,6 +10,8 @@ return {
 		keys = {
 			{ "{", "<cmd>BufferLineMovePrev<cr>" },
 			{ "}", "<cmd>BufferLineMoveNext<cr>" },
+			{ "]", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer", nowait = true },
+			{ "[", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer", nowait = true },
 		},
 		config = function()
 			local bufferline = require("bufferline")
@@ -42,22 +44,6 @@ return {
 					},
 					highlights = {},
 				},
-			})
-		end,
-	},
-	{
-		"roobert/bufferline-cycle-windowless.nvim",
-		event = { "BufEnter", "VeryLazy" },
-		dependencies = {
-			{ "akinsho/bufferline.nvim" },
-		},
-		keys = {
-			{ "]", "<cmd>BufferLineCycleWindowlessNext<cr>", desc = "Next Buffer", nowait = true },
-			{ "[", "<cmd>BufferLineCycleWindowlessPrev<cr>", desc = "Previous Buffer", nowait = true },
-		},
-		config = function()
-			require("bufferline-cycle-windowless").setup({
-				default_enabled = true,
 			})
 		end,
 	},

@@ -181,11 +181,19 @@ return {
 						},
 						i = {
 							["jk"] = require("telescope.actions").close,
-							["<Tab>"] = require("telescope.actions").move_selection_previous,
-							["<S-Tab>"] = require("telescope.actions").move_selection_next,
+							["<S-Tab>"] = require("telescope.actions").move_selection_previous,
+							["<Tab>"] = require("telescope.actions").move_selection_next,
 						},
 					},
+					layout_strategy = "horizontal",
+					layout_config = {
+						horizontal = {
+							prompt_position = "top",
+						},
+					},
+					sorting_strategy = "ascending",
 				},
+
 				extensions = {
 					fzf = {
 						fuzzy = true,
