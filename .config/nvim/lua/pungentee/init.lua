@@ -45,10 +45,11 @@ opt.winminwidth = 5
 opt.wrap = false
 opt.hlsearch = false
 opt.shell = "/bin/bash"
--- opt.relativenumber = true
 
 vim.g.float_file_tree = true
-vim.g.tmux_navigator_disable_when_zoomed = 1
+
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 
 require("pungentee.lazy")
 require("pungentee.autocmd")

@@ -1,5 +1,13 @@
 local map = vim.keymap.set
 
+-- move lines
+map("n", "<a-up>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+map("n", "<a-down>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+map("i", "<a-up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+map("i", "<a-down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+map("v", "<a-up>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+map("v", "<a-down>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+
 -- speed up movement
 map("n", "J", "15j")
 map("n", "K", "15k")
