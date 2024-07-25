@@ -48,9 +48,6 @@ opt.shell = "/bin/bash"
 
 vim.g.float_file_tree = true
 
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
-
 require("pungentee.lazy")
 require("pungentee.autocmd")
 require("pungentee.keys")
