@@ -1,23 +1,5 @@
 return {
 	{
-		"olexsmir/gopher.nvim",
-		ft = { "go", "gomod" },
-		build = ":GoInstallDeps",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"folke/which-key.nvim",
-		},
-		keys = {
-			{
-				"<leader>le",
-				"<cmd>GoIfErr<cr>",
-				desc = "Generate error check (go)",
-			},
-		},
-		config = true,
-	},
-	{
 		"MysticalDevil/inlay-hints.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
 		keys = {
@@ -60,11 +42,13 @@ return {
 				},
 			}
 
-			local on_attach = function(client, bufnr)
+			local on_attach = function(client)
 				local map = function(key, action, desc)
-					require("which-key").register({
-						[key] = { action, desc },
-					}, { prefix = "<leader>l", buffer = bufnr })
+					require("which-key").add({
+						string.format("<leader>l%s", key),
+						action,
+						desc = desc,
+					})
 				end
 
 				map("r", vim.lsp.buf.rename, "Rename")
@@ -83,6 +67,16 @@ return {
 				map("R", function()
 					require("telescope.builtin").lsp_references({ initial_mode = "normal" })
 				end, "List of references")
+				map("e", function()
+					vim.diagnostic.open_float(nil, {
+						focusable = false,
+						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+						border = "rounded",
+						source = "always",
+						prefix = " ",
+						scope = "cursor",
+					})
+				end, "Diagnostic message")
 
 				if client.name == "ruff_lsp" then
 					client.server_capabilities.hoverProvider = false
@@ -97,12 +91,28 @@ return {
 							on_attach = on_attach,
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
 								severity_sort = true,
 							},
 							format = {
 								formatting_options = nil,
 								timeout_ms = nil,
+							},
+						})
+					end,
+
+					ruff = function()
+						require("lspconfig").ruff.setup({
+							capabilities = capabilities,
+							on_attach = on_attach,
+							diagnostics = {
+								underline = true,
+								severity_sort = true,
+							},
+							format = {
+								timeout_ms = nil,
+							},
+							settings = {
+								args = {},
 							},
 						})
 					end,
@@ -122,31 +132,12 @@ return {
 						})
 					end,
 
-					ruff = function()
-						require("lspconfig").ruff.setup({
-							capabilities = capabilities,
-							on_attach = on_attach,
-							diagnostics = {
-								underline = true,
-								update_in_insert = false,
-								severity_sort = true,
-							},
-							format = {
-								timeout_ms = nil,
-							},
-							settings = {
-								args = {},
-							},
-						})
-					end,
-
 					clangd = function()
 						require("lspconfig").clangd.setup({
 							capabilities = capabilities,
 							on_attach = on_attach,
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
 								severity_sort = true,
 							},
 							format = {
@@ -181,7 +172,7 @@ return {
 							},
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
+
 								severity_sort = true,
 							},
 							format = {
@@ -201,7 +192,7 @@ return {
 							capabilities = capabilities,
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
+
 								severity_sort = true,
 							},
 							format = {
@@ -248,7 +239,7 @@ return {
 							capabilities = capabilities,
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
+
 								severity_sort = true,
 							},
 							format = {
@@ -282,7 +273,7 @@ return {
 							capabilities = capabilities,
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
+
 								severity_sort = true,
 							},
 							format = {
@@ -324,7 +315,7 @@ return {
 							capabilities = capabilities,
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
+
 								severity_sort = true,
 							},
 							format = {
@@ -349,7 +340,7 @@ return {
 							capabilities = capabilities,
 							diagnostics = {
 								underline = true,
-								update_in_insert = false,
+
 								severity_sort = true,
 							},
 							format = {

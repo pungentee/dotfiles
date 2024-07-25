@@ -24,7 +24,6 @@ return {
 					right_mouse_command = false,
 					left_mouse_command = false,
 					diagnostics = "nvim_lsp",
-					diagnostics_update_in_insert = true,
 					show_buffer_close_icons = false,
 					show_close_icon = false,
 					show_tab_indicators = true,

@@ -17,7 +17,7 @@ return {
 					javascript = { "prettier" },
 					typescript = { "prettier" },
 					json = { "prettier" },
-					jsonc = { "prettier" },
+					jsonc = { "peettier" },
 					graphql = { "prettier" },
 					handlebars = { "prettier" },
 					go = { "gofumpt", "goimports", "golines" },
@@ -36,18 +36,16 @@ return {
 			})
 
 			vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
-				callback = function(event)
-					require("which-key").register({
-						l = {
-							name = "file actions",
-							f = {
-								function()
-									require("conform").format({ bufnr = event.buf })
-								end,
-								"Format file",
-							},
+				callback = function()
+					require("which-key").add({
+						{
+							"<leader>lf",
+							function()
+								require("conform").format()
+							end,
+							desc = "Format file",
 						},
-					}, { mode = "n", prefix = "<leader>", buffer = event.buf })
+					})
 				end,
 			})
 		end,

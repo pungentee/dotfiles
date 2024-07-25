@@ -2,6 +2,9 @@ return {
 	{
 		"mfussenegger/nvim-lint",
 		lazy = false,
+		dependencies = {
+			"folke/which-key.nvim",
+		},
 		config = function()
 			local lint = require("lint")
 
@@ -21,18 +24,16 @@ return {
 			}
 
 			vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
-				callback = function(event)
-					require("which-key").register({
-						l = {
-							name = "file actions",
-							l = {
-								function()
-									require("lint").try_lint()
-								end,
-								"Try lint",
-							},
+				callback = function()
+					require("which-key").add({
+						{
+							"<leader>ll",
+							function()
+								require("lint").try_lint()
+							end,
+							desc = "Try lint",
 						},
-					}, { mode = "n", prefix = "<leader>", buffer = event.buf })
+					})
 				end,
 			})
 		end,

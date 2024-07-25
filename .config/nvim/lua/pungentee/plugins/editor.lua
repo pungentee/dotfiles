@@ -282,7 +282,7 @@ return {
 	{
 		"Pocco81/auto-save.nvim",
 		opts = {
-            write_all_buffers = true,
+			write_all_buffers = true,
 			trigger_events = { "InsertLeave" },
 		},
 	},
@@ -365,12 +365,5 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"max397574/better-escape.nvim",
-		event = "VeryLazy",
-		opts = {
-			mapping = { "jk", "kj" },
-		},
 	},
 }

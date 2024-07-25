@@ -10,17 +10,25 @@ return {
 		},
 		opts = {
 			ensure_installed = {
+				-- lsps
+
 				"lua_ls",
 				"bashls",
-				"clangd",
-				"cmake",
 				"docker_compose_language_service",
 				"dockerls",
-				"gopls",
 				"jsonls",
 				"sqlls",
 				"marksman",
+
+                -- rust
 				"rust_analyzer",
+
+                -- c, c++
+                "clangd",
+                "cmake",
+
+				-- go
+				"gopls",
 
 				-- python
 				"ruff",
@@ -35,13 +43,9 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-				-- golang
-				"gofumpt",
-				"goimports",
-				"golines",
-				"golangci-lint",
+				-- another tooling
 
-				"clang-format",
+				"clang-format", -- c, c++
 				"gersemi",
 				"markdownlint",
 				"sql-formatter",
@@ -49,6 +53,12 @@ return {
 				"jsonlint",
 				"yamllint",
 				"hadolint",
+
+				-- go
+				"gofumpt",
+				"goimports",
+				"golines",
+				"golangci-lint",
 
 				-- lua
 				"stylua",

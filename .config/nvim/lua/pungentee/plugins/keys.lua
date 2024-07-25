@@ -9,23 +9,27 @@ return {
 		end,
 		config = function()
 			local wk = require("which-key")
-			wk.setup()
-
-			wk.register({
-				f = { name = "find something" },
-				d = { name = "diagnostics" },
-				l = {
-					name = "lsp actions",
-					L = {
-						"<cmd>LspInfo<cr>",
-						"Lsp info",
-					},
+			wk.setup({
+				preset = "helix",
+				icons = {
+					mappings = false,
 				},
-				w = { name = "windows" },
-				n = { name = "notifications" },
-				g = { name = "git" },
-				m = { name = "markdown" },
+			})
+
+			wk.add({
+				{ "<leader>f", group = "find something" },
+				{ "<leader>d", group = "diagnostics" },
+				{ "<leader>l", group = "lsp actions" },
+				{ "<leader>w", group = "windows" },
+				{ "<leader>n", group = "notifications" },
+				{ "<leader>g", group = "git" },
+				{ "<leader>m", group = "markdown" },
 			}, { mode = "n", prefix = "<leader>" })
 		end,
+	},
+	{
+		"max397574/better-escape.nvim",
+		event = "VeryLazy",
+		opts = {},
 	},
 }
