@@ -19,10 +19,13 @@ else
     # stuff for both
 end
 
-# if status is-interactive
-# and not set -q TMUX
-#     exec tmux new-session -As home
-# end
+if test $TERM_PROGRAM = iTerm.app
+    if status is-interactive
+    and not set -q TMUX
+        exec tmux new-session -As home
+    end
+end
+
 
 set -x XDG_CONFIG_HOME $HOME/.config
 
@@ -73,3 +76,5 @@ fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
 
+
+fish_add_path /Users/tymofiikliuiev/.spicetify
