@@ -8,6 +8,19 @@ return {
 		opts = {},
 	},
 	{
+		"rachartier/tiny-code-action.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+		event = "LspAttach",
+		config = function()
+			require("tiny-code-action").setup({
+				backend = "delta",
+			})
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
@@ -52,7 +65,9 @@ return {
 				end
 
 				map("r", vim.lsp.buf.rename, "Rename")
-				map("a", vim.lsp.buf.code_action, "Code actions")
+				map("a", function()
+					require("tiny-code-action").code_action()
+				end, "Code actions")
 				map("h", vim.lsp.buf.hover, "Information about the symbol")
 				map("D", vim.lsp.buf.declaration, "Go to declaration")
 				map("d", function()
