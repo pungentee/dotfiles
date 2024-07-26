@@ -1,8 +1,19 @@
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
 [merge]
     conflictstyle = diff3
 
+[delta]
+    navigate = true
+
 [diff]
     colorMoved = default
+
 [user]
     name = pungentee
-	email = pungentee@gmail.com
+    email = pungentee@gmail.com
+

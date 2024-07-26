@@ -35,6 +35,7 @@ alias local_ip "ipconfig getifaddr en0"
 alias nv "nvim"
 alias lg "lazygit"
 alias lzd "lazydocker"
+alias cat "bat"
 
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -44,6 +45,8 @@ function yy
 	end
 	rm -f -- "$tmp"
 end
+
+set -x BAT_THEME "base16"
 
 # nodejs
 set --universal nvm_default_version v22.2.0
